@@ -17,7 +17,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       col.classList.add("col-sm-6", "col-md-4", "col-lg-3", "col-xl-2", "justify-content-center", "align-items-center");
 
       let container = document.createElement("div");
-      container.classList.add("card");
+      container.classList.add("card", "h-100");
 
       let divImg = document.createElement("div");
       divImg.style = "height: 20rem; overflow: hidden;";
@@ -30,7 +30,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       img.style = "object-fit: cover; width: 100%; height: 100%;";
 
       let divBody = document.createElement("div");
-      divBody.classList.add("card-body");
+      divBody.classList.add("card-body", "d-flex", "justify-content-between", "flex-column");
 
       let title = document.createElement("h6");
       title.classList.add("card-title");
@@ -46,6 +46,10 @@ fetch("https://striveschool-api.herokuapp.com/books")
       removeBtn.classList.add("btn", "btn-primary");
 
       removeBtn.innerText = "Scarta";
+
+      removeBtn.onclick = () => {
+        col.remove(container);
+      };
 
       divImg.appendChild(img);
       divBody.append(title, price, removeBtn);
